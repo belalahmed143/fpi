@@ -55,6 +55,7 @@ def gallary(request):
     return render(request, 'gallary.html',context)
 
 def NoticeSearch(request):
+    noticeboard = NoticeBoard.objects.all()
     teacherstaffcategory =TeacherStaffCategory.objects.all()
     depnames = DepartmentName.objects.all()
     if request.method == 'GET':
@@ -69,6 +70,7 @@ def NoticeSearch(request):
             context ={
                 'post':post,
                 'submitbutton':submitbutton,
+		"noticeboard":noticeboard,
                 'depnames':depnames,
                 'teacherstaffcategory': teacherstaffcategory
             }
