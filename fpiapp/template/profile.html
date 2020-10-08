@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container-fluid mt-5">
+      <div class="row ">
+        <div class="col-12 col-md-6 mx-auto">
+          <div class="card mx-auto shadow  ">
+            <h6 class="text-center py-3" style="background-color: rgb(204, 4, 97); color:white; ">PROFILE</h6>
+                <img class="rounded account-img  col-md-12" src="{{ user.profile.image.url }}">           
+                  <div class="card-body">
+                    <h5 class="text-center">{{ user.first_name }} {{ user.last_name }}</h5>
+                  <a class="btn btn-secondary" href="{% url 'profile-update' %}">Update Profile</a>
+                  <div class="row mt-5 mx-auto">
+                    <div class="col-6 ">
+                        <label>Username</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ user.username }}</p>
+                    </div>
+                  </div>
+                  <div class="row  mx-auto">
+                      <div class="col-6 ">
+                          <label>Email</label>
+                      </div>
+                      <div class="col-6">
+                          <p>{{ user.email }}</p>
+                      </div>
+                    </div>
+                    <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Father Name</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.father_name }}</p>
+                  </div>
+                  </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Mother Name</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.mother_name }}</p>
+                  </div>
+                  </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                        <label>Birthday</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ user.profile.date_of_birthday }}</p>
+                    </div>
+                    </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Phone</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.phone }}</p>
+                  </div>
+                  </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Department</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.department_name }}</p>
+                  </div>
+                  </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Permanent Address</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.permanent_address }}</p>
+                  </div>
+                  </div>
+                  <div class="row mx-auto">
+                    <div class="col-6">
+                      <label>Present Address</label>
+                    </div>
+                    <div class="col-6">
+                      <p>{{ user.profile.present_address }}</p>
+                  </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+

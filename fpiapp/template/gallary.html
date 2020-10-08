@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid py-5">
+  <h6 class="text-center py-3" style="background-color: rgb(204, 4, 97); color: white;">PHOTO GALLARY</h6>
+    <div class="col-md-8 mx-auto">
+        {% for g in gallarios %}
+        <div class="card my-5">
+            <img class="card-img-top" src="{{ g.image.url }}" alt="">
+            <div class="card-body">
+                <p class="card-text">{{g.caption}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

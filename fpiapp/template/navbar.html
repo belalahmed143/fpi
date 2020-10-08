@@ -1,0 +1,63 @@
+{% include 'style.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+{% endblock head %}
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow p-3 fixed-top" style="background-color: rgb(204, 4, 97);">
+    <a class="navbar-brand" style="font-size: large; font-family:'Arial Black', Gadget, sans-serif;" href="{% url 'index' %}">FARIDPUR POLYTECHNIC INSTITUTE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: small;">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              DEPARTMENT
+            </a>
+            <div class="dropdown-content">
+              {% for post in depnames %}
+              <a href="{% url 'DepartmentDetails' name=post.name%}">{{post.name}}</a>
+              {% endfor %}
+              </div>
+          </li>
+              <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  TEACHER & STAFFS
+                </a>
+                <div class="dropdown-content">
+                  {% for post in teacherstaffcategory %}
+                  <a href="{% url 'TeacherStaffs' name=post.name%}">{{post.name}}</a>
+                  {% endfor %}
+                    </div>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">NOTICE BOARD<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'gallary' %}">GALLARY<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'contact' %}">CONTACT US<span class="sr-only">(current)</span></a>
+              </li>
+                  {% if user.is_authenticated %}
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">LOGOUT<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'profile' %}"><img class="rounded-circle" style="height: 25px; width: 30px;" src="{{ user.profile.image.url }}" alt=""></i><span class="sr-only">(current)</span></a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'student-register' %}">REGISTRATION <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'login' %}">LOGIN <span class="sr-only">(current)</span></a>
+                  </li>
+                  {% endif %}
+                </ul>
+    </div>
+  </nav>

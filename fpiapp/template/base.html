@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Faridpur Polytechnic Institute - {{ title }}</title>
+    {% else %}
+        <title>Faridpur Polytechnic Institute</title>
+    {% endif %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ {% block head %}
+ {% endblock head %}
+</head>
+<body style="height: 100%;">
+<div>
+    <div>
+    {% include 'navbar.html' %}
+    {% include 'notice.html' %}
+    </div>
+    <div class=" container-fluid pt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="margin-top: 2%; text-align: center;">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+       {% block content %}
+
+        {% endblock %}
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue" style="background-color: rgb(131, 2, 62); color: white;">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-2">© 2020 Copyright:
+      <a href="#"> Belalahmed</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+{% include 'script.html' %}
+</html>

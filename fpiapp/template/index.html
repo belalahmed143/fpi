@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="row mx-auto">
+        <div class="col-12 col-md-8 col-lg-8 my-2">
+          {% include 'carousel.html' %}
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 my-2">
+            <div class="card shadow">
+                <img class="card-img-top" src="{% static 'img/shekhmujib.jpg' %}"  alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container-fluid">
+  <h6 class="text-center py-2" style="background-color: rgb(204, 4, 97); color: white;">INSTITUTE'S HISTORY</h6><hr class="shadow">
+  <div class="row mx-auto">
+    <div class="col-12 col-md-5">
+      <img class="col-12" src="{% static 'img/fpi.jpg' %}" alt="">
+    </div>
+    <div class="col-12 col-md-7">
+        <p class="px-5" style="font-size: large;">The institute was established in 1963 as Faridpur Technical Institute. In 1967, it was reformed as Faridpur Polytechnic Institute.Faridpur Polytechnic Institute is located at Baitul Aman, a neighborhood of Faridpur city in Bangladesh. It is near Baitul Aman campus of the Government Rajendra College, Faridpur. It offers diploma-level programmes for Diploma-in-Engineering in many different technological areas, each required to study for a 4-year-long curriculum. Students can participate in: Civil engineering, Computer engineering, Electrical engineering, Mechanical engineering, Power engineering, Refrigeration and Air Conditioning Engineering, There is a department for each of the above programmes and a related subject department called as Non-tech. Each department is headed by a chief instructor (CI). So, there are total of seven departments in Faridpur Polytechnic Institute.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% include 'administrator.html' %}
+{% include 'complaint.html' %}
+
+<!-- Gallary -->
+
+<div class="container-fluid py-4">
+  <h6 class="text-center py-2 mt-3 mx-3" style="background-color: rgb(204, 4, 97); color: white;">PHOTO GALLARY</h6>
+  <div class="row py-5">
+    {% for g in gallary %}
+    <div class="col-12 col-md-3">
+      <div class="card py-3" style="height: 250px; width: 25opx;">
+        <img class="card-img-top col-12" src="{{g.image.url}}" alt="">
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="pt-3 text-center">
+  <a class="btn btn-sm btn-secondary" href="{% url 'gallary' %}">All Photo</a>
+  </div>  
+</div>
+
+<!-- end Gallary -->
+
+<div class="container-fluid pt-4">
+  <h6 class="text-center py-2 mx-3" style="background-color: rgb(204, 4, 97); color: white;">WEDSITE DESIGN & DEVELOPER'S PROFILE</h6>
+  <div class="row mx-auto px-3">
+  <div class="col-12 col-md-6 col-lg-6 my-4">
+    <div class="card mx-auto shadow rounded " style="height: 300px; width: 300px;">
+      <img class="card-img-top" src="{% static 'img/belal.png' %}" alt="Card image cap">
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-6 ">
+    <div class="mx-auto mt-4" style="height: 300px; width: 300px;">
+      <h4 class="">Mohammad Belal Ahmed</h4>
+      <p style="font-size: 15px;">Student of Faridpur Polytechnic Institute<br>Computer Technology<br>Skill : Python,C#,Java,Django,Html,Css,Bootstrap4<br>Email : mohammadbelalahmed82@gmail.com <br>Permanent Address : Shibchar, Madaripur<br>Present Address : Baitul-Aman, Faridpur<br>Phone : 01704870490</p>
+  </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}

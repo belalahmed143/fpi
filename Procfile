@@ -1,0 +1,1 @@
+web: gunicorn faridpurpolytechnic.wsgi --log-file -

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if post %}
+        <div class="container mt-5">
+            {% for p in post %}
+            <div class="my-5">
+              <div class="card shadow mx-auto" style="width: 400px;">              
+                <div class="card-body ">
+                    <h4 class="card-title">{{p.title}}</h4>
+                    <p class="card-text">{{p.description}}</p>
+                  <div> 
+                    <img class="card-img-top" src="{{p.file_up.url}}" alt="">
+                    <a href="{{post.file_up.url}}">{{p.file_up}}</a>
+                  </div>
+                </div>
+            </div>  
+            </div>
+          {% endfor %}   
+          </div> 
+          {% else %}
+          <div class="py-5" style="text-align: center; color: red;">
+              <h3 class="py-5">No Serach Result </h3>
+          </div>
+          {% endif %}
+          {% endif %}
+{% endblock %}
