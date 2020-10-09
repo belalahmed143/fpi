@@ -5,7 +5,7 @@ from .models import Profile
 
 
 Dep_Name =(
-    ('s','select-department'),
+    ('None','select-department'),
     ('Computer','Computer'),
     ('Electical','Electical'),
     ('Civil','Civil'),
@@ -59,6 +59,11 @@ class UpdateRegisterForm(forms.ModelForm):
 
 class UpdateProfileForm(forms.ModelForm):
     department_name     = forms.CharField(max_length=10,widget=forms.Select(choices= Dep_Name),required=True)
+    date_of_birthday = forms.DateField(
+        widget=forms.TextInput( attrs={
+        "type":"date",
+    })
+    )
     class Meta:
         model = Profile
         fields = ['image','father_name','mother_name','date_of_birthday','phone','department_name','permanent_address','present_address']
