@@ -199,7 +199,9 @@ class Login(View):
             login(request, submit)
             return redirect('index')
         else:
-            messages.warning(request, f'password or username incoret')
+            messages.warning(request, f'password or username incorrect')
+        return render(request,'login.html')
+
 
 def Logout(request):
     logout(request)
