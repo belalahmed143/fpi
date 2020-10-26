@@ -27,6 +27,7 @@ def index(request):
         submit = Complaint(subject=subject,description=description)
         messages.success(request, f'Successfully Submit')
         submit.save()
+        return redirect('index')
 
 
     context ={
@@ -146,6 +147,7 @@ def contact(request):
         submit = Contact(name=name,email=email,phone=phone,subject=subject,message=message)
         messages.success(request, f'Successfully Submit')
         submit.save()
+        return redirect('index')
     context={
         "noticeboard":noticeboard,
         'depnames':depnames,
